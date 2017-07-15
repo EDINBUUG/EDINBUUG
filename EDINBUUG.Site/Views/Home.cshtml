@@ -13,9 +13,14 @@
             background-color: #00BEC1;
         }
 
+        .meetup {
+            border-top: 1px solid #fff;
+            padding-top: 1em;
+        }
+
         .social li {
             display: inline-block;
-            margin: 0 .5em;
+            margin: 1em .5em;
         }
     </style>
 </head>
@@ -23,36 +28,43 @@
     <section class="hero is-primary is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <h1 class="title">
-                    EDINBUUG
-                </h1>
-                <h2 class="subtitle">
-                    Edinburgh Umbraco Users Group
-                </h2>
-                <ul class="social">
-                    <li>
-                        <a href="https://www.meetup.com/Edinburgh-Umbraco-Users-Group/">
-                            <span class="icon is-large">
-                                <i class="fa fa-meetup" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://umbracians.slack.com/messages/C5L9KJ7C0/">
-                            <span class="icon is-large">
-                                <i class="fa fa-slack" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/edinbuug">
-                            <span class="icon is-large">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="columns">
+                    <div class="column is-half is-offset-one-quarter">
+                        <h1 class="title is-2">
+                            EDINBUUG
+                        </h1>
+                        <h2 class="subtitle is-3">
+                            Edinburgh Umbraco Users Group
+                        </h2>
+                        @Html.CachedPartial("_Meetup", Model, 1800)
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="hero-foot has-text-centered">
+            <ul class="social">
+                <li>
+                    <a href="https://www.meetup.com/Edinburgh-Umbraco-Users-Group/">
+                        <span class="icon is-large">
+                            <i class="fa fa-meetup" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://umbracians.slack.com/messages/C5L9KJ7C0/">
+                        <span class="icon is-large">
+                            <i class="fa fa-slack" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/edinbuug">
+                        <span class="icon is-large">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
         </div>
     </section>
 </body>

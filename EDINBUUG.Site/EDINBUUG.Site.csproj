@@ -294,6 +294,7 @@
     <Content Include="config\uSyncBackOffice.Config" />
     <Content Include="App_Plugins\uSync\package.manifest" />
     <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Partials\_Meetup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -333,12 +334,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\MeetupLogic.cs" />
     <Compile Include="Models\Generated\File.generated.cs" />
     <Compile Include="Models\Generated\Folder.generated.cs" />
     <Compile Include="Models\Generated\Home.generated.cs" />
     <Compile Include="Models\Generated\Image.generated.cs" />
     <Compile Include="Models\Generated\Member.generated.cs" />
     <Compile Include="Models\Generated\Website.generated.cs" />
+    <Compile Include="Models\Meetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var meetup = EDINBUUG.Site.BLL.MeetupLogic.GetNextMeetup();
+}
+@if (meetup != null)
+{
+    <section class="meetup">
+        <div class="title is-5">Next Meetup:</div>
+        <div class="subtitle is-5">
+            @meetup.DateTime.ToLongDateString() @@ @meetup.DateTime.ToShortTimeString()
+        </div>
+        <a class="button is-light" href="@meetup.Link">RSVP</a>
+    </section>
+}
