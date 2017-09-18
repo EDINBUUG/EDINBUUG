@@ -1,8 +1,10 @@
 ﻿using EDINBUUG.Site.Models;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using Umbraco.Core.Logging;
 
 namespace EDINBUUG.Site.BLL
 {
@@ -18,19 +20,23 @@ namespace EDINBUUG.Site.BLL
         {
             Meetup meetup = null;
 
-            
-             using (var client = new HttpClient())
- +            {
- +                var result = client.GetAsync($"http://api.meetup.com/Edinburgh-Umbraco-Users-Group/events").Result;
- +                if (result.IsSuccessStatusCode)
- +                {
- +                    var content = result.Content.ReadAsStringAsync().Result;
- +                    var meetups = JsonConvert.DeserializeObject<IEnumerable<Meetup>>(content);
- +                    meetup = meetups.FirstOrDefault();
- +                }
- +            }
-            
-          
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var result = client.GetAsync("http://api.meetup.com/Edinburgh-Umbraco-Users-Group/events").Result;
+                    if (result.IsSuccessStatusCode)
+                    {
+                        var content = result.Content.ReadAsStringAsync().Result;
+                        var meetups = JsonConvert.DeserializeObject<IEnumerable<Meetup>>(content);
+                        meetup = meetups.FirstOrDefault();
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                LogHelper.Error<MeetupLogic>("Could not retrieve next meetup.", exception);
+            }
 
             return meetup;
         }
