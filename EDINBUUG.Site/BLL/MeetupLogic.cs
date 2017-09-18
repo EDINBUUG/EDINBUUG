@@ -20,7 +20,7 @@ namespace EDINBUUG.Site.BLL
 
             using (var client = new HttpClient())
             {
-                var result = client.GetAsync($"http://api.meetup.com/Edinburgh-Umbraco-Users-Group/events").Result;
+                var result = client.GetAsync($"http://api.meetup.com/2/events?key=56343544627d4e2a6740251b15c5919&group_urlname=Edinburgh-Umbraco-Users-Group&sign=true").Result;
                 if (result.IsSuccessStatusCode)
                 {
                     var content = result.Content.ReadAsStringAsync().Result;
