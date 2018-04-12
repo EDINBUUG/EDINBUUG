@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -295,6 +296,7 @@
     <Content Include="App_Plugins\uSync\package.manifest" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Partials\_Meetup.cshtml" />
+    <Content Include="Views\Partials\_Donate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
